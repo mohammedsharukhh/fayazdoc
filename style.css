@@ -6,7 +6,7 @@ body {
     color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Reverted to center */
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -16,33 +16,35 @@ body {
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: start; /* Reverted to center */
+    justify-content: start; /* Centered for consistency across devices */
 }
 
 .navbar-content-wrapper {
     width: 100%;
-    max-width: 960px; /* Adjust as needed */
+    max-width: 960px;
     padding: 0 20px;
+    display: flex;
+    align-items: start;
 }
 
 .logo {
-    height: 50px; /* Adjust as per your logo's aspect ratio and desired size */
+    height: 50px;
     display: block;
 }
 
 .page-content-container {
     width: 100%;
-    max-width: 1000px; /* Matched to navbar-content-wrapper */
-    margin-top: 50px; /* Changed from 30px */
+    max-width: 1000px;
+    margin-top: 50px;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
-    position: relative; /* Added for positioning */
-    left: -250px; /* Shifted left by 100px */
+    position: relative;
+    left: 0; /* Reset to 0 for consistency across viewports */
 }
 
 .title-section h1 {
-    font-size: 45px; /* Approximate from image */
+    font-size: 45px;
     font-weight: bold;
     color: #212529;
     margin-bottom: 30px;
@@ -56,12 +58,13 @@ body {
 .detail-item {
     display: flex;
     margin-bottom: 15px;
-    font-size: 20px; /* Approximate */
+    font-size: 20px;
+    flex-wrap: wrap;
 }
 
 .detail-item .label {
     font-weight: bold;
-    width: 150px; /* Adjust as needed for alignment */
+    width: 150px;
     color: #495057;
     padding-right: 10px;
 }
@@ -69,12 +72,16 @@ body {
 .detail-item .value {
     color: #212529;
     flex: 1;
+    min-width: 150px;
 }
 
 footer {
+    width: 100%;
+    max-width: 1000px;
     text-align: start;
     margin-top: 40px;
     padding-top: 20px;
+    padding-right: 20px;
 }
 
 footer p {
@@ -92,10 +99,21 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive adjustments (optional, basic example) */
+/* Medium screens */
+@media (max-width: 992px) {
+    .title-section h1 {
+        font-size: 36px;
+    }
+    .detail-item {
+        font-size: 18px;
+    }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
     .title-section h1 {
-        font-size: 20px;
+        font-size: 28px;
+        text-align: center;
     }
     .detail-item {
         flex-direction: column;
@@ -107,5 +125,22 @@ footer a:hover {
     }
     .navbar-content-wrapper, .page-content-container {
         padding: 0 15px;
+    }
+}
+
+/* Small devices */
+@media (max-width: 480px) {
+    .title-section h1 {
+        font-size: 22px;
+    }
+    .detail-item {
+        font-size: 16px;
+    }
+    .logo {
+        height: 40px;
+    }
+    footer {
+        text-align: center;
+        padding: 10px;
     }
 }
